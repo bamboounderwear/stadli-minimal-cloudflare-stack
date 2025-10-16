@@ -1,0 +1,35 @@
+{
+  "name": "stadli-minimal-cloudflare-stack",
+  "main": "src/index.ts",
+  "compatibility_date": "2025-03-07",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": { "enabled": true, "head_sampling_rate": 1 },
+  "assets": {
+    "binding": "ASSETS",
+    "directory": "public"
+  },
+  "d1_databases": [
+    { "binding": "DB", "database_name": "stadli_db", "database_id": "7930a802-1b46-4958-b8d0-197f6cfab90f" }
+  ],
+  "kv_namespaces": [
+    { "binding": "SESSIONS", "id": "9dc5ad700ff44cdb9a12e0868887437a" },
+    { "binding": "CONFIG", "id": "78bddb30174d4279a63b1f92516accea" }
+  ],
+  "r2_buckets": [
+    { "binding": "BUCKET", "bucket_name": "stadli-assets" }
+  ],
+  "ai": { "binding": "AI" },
+  "analytics_engine_datasets": [
+    { "binding": "LOGS", "dataset": "stadli_events" }
+  ],
+  "triggers": { "crons": [] },
+  "dev": {
+    "inspect": true,
+    "cache_persist": true
+  },
+  "vars": {
+    "APP_NAME": "Stadli Admin",
+    "SESSION_COOKIE_NAME": "stadli.sid",
+    "CSP_REPORT_ONLY": "false"
+  }
+}
